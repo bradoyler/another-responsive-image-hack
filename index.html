@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="responsive img solution for above the fold images, using inline js" />
+  <meta charset="utf-8">
+  <title>Responsive Img hack</title>
+</head>
+<body>
+<img class="js-responsive-img" src='//:0' 
+     data-bp0='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-320-320.jpg' 
+     data-bp1='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-520-320.jpg' 
+     data-bp2='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-600-320.jpg' 
+     data-bp3='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-680-320.jpg'>
+
+<img class="js-responsive-img" src='//:0' 
+     data-bp3='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-320-320.jpg' 
+     data-bp2='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-520-320.jpg' 
+     data-bp1='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-600-320.jpg' 
+     data-bp0='http://media2.s-nbcnews.com/j/newscms/2014_41/708631/141009-liberia-ebola-jsw-1158a_b58372304e3003a1bed177b8d90e126d.nbcnews-fp-680-320.jpg'>
+
+<script>
+ 
+   function adaptImages(viewportwidth, selector, breakpoints){
+
+    for(var i=0;i<breakpoints.length;i++) {
+      var startwidth = breakpoints[i], nextIdx = i+1, nextwidth = '99999';
+      if(breakpoints[nextIdx]) {
+        nextwidth = breakpoints[nextIdx];
+      }
+
+      if(viewportwidth>=startwidth && viewportwidth < nextwidth) {
+          var imgs = document.querySelectorAll(selector);
+          for(var j=0;j<imgs.length;j++) {
+            imgs[j].setAttribute('src',imgs[j].getAttribute('data-bp'+ i));
+          }
+      }
+    }
+  };
+
+  // gets viewport dimensions
+  function viewport() {
+    var t=window,n="inner";
+    if(!("innerWidth"in window)) { 
+      n="client";t=document.documentElement||document.body
+    }
+    return { width:t[n+"Width"], height:t[n+"Height"]};
+  };
+
+  adaptImages(viewport().width, '.js-responsive-img', [0,768,992,1230]);
+  
+</script> 
+</body>
+</html>
