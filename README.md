@@ -21,3 +21,5 @@ adaptImages(viewport().width, '.js-adaptive-img', [0,768,992,1230]);
 ```
 #### Thats it.
 This was intended to be a performant technique for 'above the fold' responsive images.
+
+#### [Demo](http://bradoyler.github.io/another-responsive-image-hack/)
