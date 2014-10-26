@@ -6,6 +6,9 @@
   <title>Responsive Img hack</title>
 </head>
 <body>
+<h3>Resize browser & refresh.</h3>
+<p>Breakpoints are: 768, 992 & 1230px</p>
+<p id='msg'></p>
 <img class="js-responsive-img" src='//:0' 
      data-bp0='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-320-320.jpg' 
      data-bp1='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-520-320.jpg' 
@@ -47,6 +50,8 @@
 
   adaptImages(viewport().width, '.js-responsive-img', [0,768,992,1230]);
   
+  // outputs screen width
+  document.getElementById("msg").innerHTML="Current viewport.width: "+viewport().width;
 </script> 
 </body>
 </html>
