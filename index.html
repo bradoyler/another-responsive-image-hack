@@ -9,19 +9,19 @@
 <h3>Resize browser & refresh.</h3>
 <p>Breakpoints are: 768, 992 & 1230px</p>
 <p id='msg'></p>
-<img class="js-responsive-img" src='//:0' 
-     data-bp0='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-320-320.jpg' 
-     data-bp1='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-520-320.jpg' 
-     data-bp2='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-600-320.jpg' 
+<img class="js-responsive-img" src='//:0'
+     data-bp0='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-320-320.jpg'
+     data-bp1='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-520-320.jpg'
+     data-bp2='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-600-320.jpg'
      data-bp3='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-680-320.jpg'>
 
-<img class="js-responsive-img" src='//:0' 
-     data-bp3='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-320-320.jpg' 
-     data-bp2='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-520-320.jpg' 
-     data-bp1='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-600-320.jpg' 
+<img class="js-responsive-img" src='//:0'
+     data-bp3='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-320-320.jpg'
+     data-bp2='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-520-320.jpg'
+     data-bp1='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-600-320.jpg'
      data-bp0='http://media1.s-nbcnews.com/j/newscms/2014_24/496476/140609-ent-nicolas-cage_fc60fdbf7c96ed48ddb4e8e57c7776e6.nbcnews-ux-680-320.jpg'>
 <script>
- 
+
    function adaptImages(viewportwidth, selector, breakpoints){
 
     for(var i=0;i<breakpoints.length;i++) {
@@ -35,6 +35,7 @@
           for(var j=0;j<imgs.length;j++) {
             imgs[j].setAttribute('src',imgs[j].getAttribute('data-bp'+ i));
           }
+          break;
       }
     }
   };
@@ -42,17 +43,17 @@
   // gets viewport dimensions
   function viewport() {
     var t=window,n="inner";
-    if(!("innerWidth"in window)) { 
+    if(!("innerWidth"in window)) {
       n="client";t=document.documentElement||document.body
     }
     return { width:t[n+"Width"], height:t[n+"Height"]};
   };
 
   adaptImages(viewport().width, '.js-responsive-img', [0,768,992,1230]);
-  
+
   // outputs screen width
   document.getElementById("msg").innerHTML="Current viewport.width: "+viewport().width;
-</script> 
+</script>
 <h3><a href='http://bradoyler.github.io/another-responsive-image-hack/'>Source on github</a> </h3>
 </body>
 </html>
